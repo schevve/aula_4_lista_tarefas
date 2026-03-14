@@ -1,13 +1,13 @@
-package com.aula_4.lista_tarefas;
+package com.aula_4.cadastro_alunos;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class ListaTarefasApplication {
+public class CadastroAlunosApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(ListaTarefasApplication.class, args);
+		SpringApplication.run(CadastroAlunosApplication.class, args);
 	}
 
 }
