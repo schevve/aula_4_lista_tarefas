@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Alunos</title>
+	<link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+<div class="container">
+	<h1>Lista de Alunos</h1>
+
+	<div class="acoes-topo">
+		<a class="btn btn-principal" th:href="@{/alunos/cadastro}">Cadastrar novo aluno</a>
+	</div>
+
+	<table>
+		<thead>
+		<tr>
+			<th>ID</th>
+			<th>Nome</th>
+			<th>Matricula</th>
+			<th>Curso</th>
+			<th>Semestre</th>
+			<th>Acoes</th>
+		</tr>
+		</thead>
+		<tbody>
+		<tr th:if="${#lists.isEmpty(alunos)}">
+			<td colspan="6" class="vazio">Nenhum aluno cadastrado.</td>
+		</tr>
+		<tr th:each="aluno : ${alunos}">
+			<td th:text="${aluno.id}"></td>
+			<td th:text="${aluno.nome}"></td>
+			<td th:text="${aluno.matricula}"></td>
+			<td th:text="${aluno.curso}"></td>
+			<td th:text="${aluno.semestre}"></td>
+			<td class="acoes-linha">
+				<a class="btn" th:href="@{/alunos/editar/{id}(id=${aluno.id})}">Editar</a>
+				<form th:action="@{/alunos/excluir/{id}(id=${aluno.id})}" method="post">
+					<button class="btn btn-perigo" type="submit">Excluir</button>
+				</form>
+			</td>
+		</tr>
+		</tbody>
+	</table>
+</div>
+</body>
+</html>
